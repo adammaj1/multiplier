@@ -35,6 +35,10 @@ c programs
 * [c.c](./src/c.c) : compute parameter c from it's multiplier. Uses the code from [mandelbrot-numerics library](https://code.mathr.co.uk/mandelbrot-numerics) by [Claude Heiland-Allen](https://mathr.co.uk/)
 * [m.c](./src/m.c) : compute multiplier for given parameter c
 
+
+# License
+[GNU GENERAL PUBLIC LICENSE Version 3, 29 June 2007](./src/LICENSE.txt)
+
 # git 
 
 
