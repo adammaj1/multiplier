@@ -39,7 +39,8 @@ c program for computing multiplier for given parameter c
 * [m.c](./src/m.c) 
 
 
-
+# See also
+* [period of complex quadratic polynomial](https://github.com/adammaj1/period_complex_quadratic_polynomial) 
 
 
 
