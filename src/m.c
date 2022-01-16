@@ -151,8 +151,20 @@ double t;
 
 int main (){
 
+	complex double examples[7] = {
+	0.254763149847213 		+0.498166625409228*I, 
+	0.251518755582843  		+0.498567173513134*I,
+	0.254418285260390  		+0.497476896235582*I, 
+	0.254763149847213 		+0.498166625409228*I,
+	0.251518755582843  		+0.498567173513134*I,
+	0.250548544047613  		+0.499466516591390*I,
+	0.2478165365298108694533 - 0.5027951422378465886278*I   // location by Bernd Schmidt https://github.com/bernds/GAPFixFractal
+	
+	};
+
+
 	// input
-	complex double c =0.254763149847213 +0.498166625409228*I;
+	complex double c ;
 	int period= 4;
 	
 	
@@ -161,14 +173,17 @@ int main (){
 	double angle ;
 	double radius ;
 	
+	int iMax = sizeof(examples)/sizeof(examples[0]);
 	
+	for (int i = 0 ; i < iMax; i++)	
+	{
+		c = examples[i];
+		m = give_multiplier( c, period);
 	
-	m = give_multiplier( c, period);
-	
-	angle = cturn(m);
-	radius = cabs(m);
-	printf (" c = %.16f%+.16f*I \t it's multiplier = %.16f%+.16f*I \t internal radius r = %.16f \t internal angle = %.16f \tperiod = %d\n", creal(c), cimag(c), creal(m), cimag(m), radius, angle , period);
-
+		angle = cturn(m);
+		radius = cabs(m);
+		printf (" c = %.16f%+.16f*I \t m(c) = %.16f%+.16f*I \t r(m) = %.16f \t t(m) = %.16f \tperiod = %d\n", creal(c), cimag(c), creal(m), cimag(m), radius, angle , period);
+	}
 	
 	return 0;
 }
