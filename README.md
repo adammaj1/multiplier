@@ -38,6 +38,9 @@ c programs for computing parameter c from it's multiplier. Use the code from [ma
 c program for computing multiplier for given parameter c
 * [m.c](./src/m.c) 
 
+c program for computing period
+* [p.c](./src/p.c)
+
 
 # See also
 * [period of complex quadratic polynomial](https://github.com/adammaj1/period_complex_quadratic_polynomial) 
