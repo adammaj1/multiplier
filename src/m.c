@@ -153,7 +153,7 @@ int main (){
 
 	// input
 	complex double c =0.254763149847213 +0.498166625409228*I;
-	int p= 4;
+	int period= 4;
 	
 	
 	// output
@@ -163,7 +163,7 @@ int main (){
 	
 	
 	
-	m = give_multiplier( c, p);
+	m = give_multiplier( c, period);
 	
 	angle = cturn(m);
 	radius = cabs(m);
