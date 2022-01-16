@@ -8,6 +8,14 @@ it can be used for :
 * checking stability of periodic points z
 
 
+# examples
+
+```bash
+gcc m.c -Wall -lm
+./a.out
+ c = 0.2547631498472130+0.4981666254092280*I 	 it's multiplier = 0.9527732719049150+0.1058597981813492*I 	 internal radius r = 0.9586361168490332 	 internal angle = 0.0176110004269997 
+```
+
 
 
 
