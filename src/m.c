@@ -167,7 +167,7 @@ int main (){
 	
 	angle = cturn(m);
 	radius = cabs(m);
-	printf (" c = %.16f%+.16f*I \t it's multiplier = %.16f%+.16f*I \t internal radius r = %.16f \t internal angle = %.16f \n", creal(c), cimag(c), creal(m), cimag(m), radius, angle );
+	printf (" c = %.16f%+.16f*I \t it's multiplier = %.16f%+.16f*I \t internal radius r = %.16f \t internal angle = %.16f \tperiod = %d\n", creal(c), cimag(c), creal(m), cimag(m), radius, angle , period);
 
 	
 	return 0;
