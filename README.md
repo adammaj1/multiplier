@@ -62,7 +62,7 @@ c program for computing period
 
 # See also
 * [period of complex quadratic polynomial](https://github.com/adammaj1/period_complex_quadratic_polynomial) 
-
+* [fractalforums: shaping-spirals](https://fractalforums.org/fractal-mathematics-and-new-theories/28/shaping-spirals/4601/new#new)
 
 
 # License
