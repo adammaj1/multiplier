@@ -32,7 +32,7 @@ otput : c = 0.2547631498472130+0.4981666254092280*I
 # files
 
 c programs 
-* [c.c](./src/c.c) : compute parameter c from it's multiplier
+* [c.c](./src/c.c) : compute parameter c from it's multiplier. Uses the code from [mandelbrot-numerics library](https://code.mathr.co.uk/mandelbrot-numerics) by [Claude Heiland-Allen](https://mathr.co.uk/)
 * [m.c](./src/m.c) : compute multiplier for given parameter c
 
 # git 
