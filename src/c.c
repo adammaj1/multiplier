@@ -136,7 +136,23 @@ m_newton m_d_interior_step(double complex *z_out, double complex *c_out, double 
 	maxsteps	= 
   
   
-*/
+  
+  My c program gives wrong result:
+
+ period = 3 center = -0.1225611668766540+0.7448617666197440*I    multiplier : internal angle = 0.00  internal radius = 1.0000000000000000   c = -1000.0000000000000000+0.0000000000000000*I
+
+original code gives good result:
+
+  ./m-interior double 0 0 -0.1225611668766540 +0.7448617666197440 1 0 3 100
+find point c of component with period = 3     multiplier = 1.0000000000000000+0.0000000000000000    located near c=  -0.1225611668766540+0.7448617666197440
+-2.5006361141355088e-01 4.3298542796573969e-01 -1.2499999999943506e-01 6.4951905283823752e-01
+
+https://fractalforums.org/programming/11/multiplier-map/5038/msg36763#new
+The return policy of m_d_interior should be changed as follows:
+
+  
+  
+
 m_newton m_d_interior(double complex *z_out, double complex *c_out, double complex z_guess, double complex c_guess, double complex multiplier, int period, int maxsteps) {
 
 	m_newton result = m_failed;
@@ -152,9 +168,35 @@ m_newton m_d_interior(double complex *z_out, double complex *c_out, double compl
   	*c_out = c;
   	return result;
 }
+*/
 
+m_newton m_d_interior(double complex *z_out, double complex *c_out, double complex z_guess, double complex c_guess, double complex multiplier, int period, int maxsteps) {
 
+	m_newton result = m_failed;
+  	double complex z = z_guess;
+  	double complex c = c_guess;
+ 
+  	for (int i = 0; i < maxsteps; ++i) {
+    		if (m_stepped != (result = m_d_interior_step(&z, &c, z, c, multiplier, period)))
+    			{ break;  }
+  		}
+  	// 	
+  	*z_out = z;
+  	*c_out = c;
 
+	// if the result variable here has value
+	// m_stepped, the loop above has not been left
+	// by the break statement, hence was successful
+	// in all iterations
+	// then the function should return
+	// m_converged, as the
+	// outside routine aproximate_c tests only
+	// for m_converged
+	
+	if (result == m_stepped) return m_converged;
+	
+  	return result;
+}
 
 complex double aproximate_c( const int p, const complex double center, const complex double multiplier){
 
@@ -232,7 +274,17 @@ int main (){
 	printf ("\t period = %d center = %.16f%+.16f*I\n", p, creal(center), cimag(center));
 	printf ("\t multiplier : internal angle = %.16f \t internal radius = %.16f\n\n", angle, radius);
 	printf ("otput : c = %.16f%+.16f*I\n", creal(c), cimag(c));
-
+	
+	
+	p = 3;
+	center = -0.1225611668766540+0.7448617666197440*I;
+	angle = 0.0;
+	radius = 1.0;
+	c = give_c(p, center, angle, radius);
+	printf ("input : \n");
+	printf ("\t period = %d center = %.16f%+.16f*I\n", p, creal(center), cimag(center));
+	printf ("\t multiplier : internal angle = %.16f \t internal radius = %.16f\n\n", angle, radius);
+	printf ("otput : c = %.16f%+.16f*I\n", creal(c), cimag(c));
 	
 	return 0;
 }
